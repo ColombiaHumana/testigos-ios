@@ -1,0 +1,930 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		573405B32CE90311752C52E5 /* libPods-ColombiaHumana.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE0D78598439CEE07253D69 /* libPods-ColombiaHumana.a */; };
+		6E02A34E20A89890007367F0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A34C20A89890007367F0 /* logo.png */; };
+		6E02A34F20A89890007367F0 /* banner_app.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A34D20A89890007367F0 /* banner_app.jpeg */; };
+		6E02A35620A8A33F007367F0 /* Guias.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35020A8A33C007367F0 /* Guias.png */; };
+		6E02A35720A8A33F007367F0 /* Recomendaciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35120A8A33C007367F0 /* Recomendaciones.png */; };
+		6E02A35820A8A33F007367F0 /* Anomalias.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35220A8A33D007367F0 /* Anomalias.png */; };
+		6E02A35920A8A33F007367F0 /* Registro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35320A8A33D007367F0 /* Registro.png */; };
+		6E02A35A20A8A33F007367F0 /* ReportarResultados.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35420A8A33E007367F0 /* ReportarResultados.png */; };
+		6E02A35B20A8A33F007367F0 /* ReportarAnomalias.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35520A8A33E007367F0 /* ReportarAnomalias.png */; };
+		6E02A35D20A8EC8D007367F0 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35C20A8EC8C007367F0 /* picture.png */; };
+		6E02A36020A9167E007367F0 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35E20A9167C007367F0 /* check.png */; };
+		6E02A36120A9167E007367F0 /* nocheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E02A35F20A9167D007367F0 /* nocheck.png */; };
+		6E273594206571C700D3736D /* MenuViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273593206571C700D3736D /* MenuViewViewController.swift */; };
+		6E273596206571DE00D3736D /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273595206571DE00D3736D /* MenuTableViewCell.swift */; };
+		6E27359A20657DA300D3736D /* btnBackFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E27359820657DA200D3736D /* btnBackFinal.png */; };
+		6E27359B20657DA300D3736D /* FinalMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E27359920657DA300D3736D /* FinalMenu.png */; };
+		6E3FB4512064121400773B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB4502064121400773B6B /* AppDelegate.swift */; };
+		6E3FB4532064121400773B6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB4522064121400773B6B /* ViewController.swift */; };
+		6E3FB4562064121400773B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3FB4542064121400773B6B /* Main.storyboard */; };
+		6E3FB4582064121400773B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E3FB4572064121400773B6B /* Assets.xcassets */; };
+		6E3FB45B2064121400773B6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3FB4592064121400773B6B /* LaunchScreen.storyboard */; };
+		6E3FB4662064121400773B6B /* ColombiaHumanaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB4652064121400773B6B /* ColombiaHumanaTests.swift */; };
+		6E3FB4712064121500773B6B /* ColombiaHumanaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB4702064121500773B6B /* ColombiaHumanaUITests.swift */; };
+		6E3FB48320656F3D00773B6B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB48020656F3D00773B6B /* SWRevealViewController.m */; };
+		6E3FB48420656F3D00773B6B /* ClaseGenerica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FB48120656F3D00773B6B /* ClaseGenerica.swift */; };
+		6EAB79BB20976675004CA7A0 /* OlvideClaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB79BA20976675004CA7A0 /* OlvideClaveViewController.swift */; };
+		6EAB79BD209770DC004CA7A0 /* Footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79BC209770DC004CA7A0 /* Footer.png */; };
+		6EAB79BF20977182004CA7A0 /* LogoPetroHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79BE20977181004CA7A0 /* LogoPetroHeader.png */; };
+		6EAB79C12097737A004CA7A0 /* ImagenPrincipal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C02097737A004CA7A0 /* ImagenPrincipal.png */; };
+		6EAB79C32098B459004CA7A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C22098B459004CA7A0 /* GoogleService-Info.plist */; };
+		6EAB79C52098D614004CA7A0 /* Camara.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C42098D614004CA7A0 /* Camara.png */; };
+		6EAB79C72099EEFB004CA7A0 /* FotoGuiaRapida.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C62099EEFB004CA7A0 /* FotoGuiaRapida.png */; };
+		6EEF0E592096C26C00A6AF8B /* DenunciarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E582096C26C00A6AF8B /* DenunciarViewController.swift */; };
+		6EEF0E5B2096C28D00A6AF8B /* PuntajeVotacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E5A2096C28D00A6AF8B /* PuntajeVotacionViewController.swift */; };
+		6EEF0E5D2096C2A000A6AF8B /* GuiaRapidaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E5C2096C2A000A6AF8B /* GuiaRapidaViewController.swift */; };
+		6EEF0E612096DF3A00A6AF8B /* voting-urn-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EEF0E602096DF3A00A6AF8B /* voting-urn-2.png */; };
+		6EEF0E632096DF7500A6AF8B /* voting-urn-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EEF0E622096DF7400A6AF8B /* voting-urn-3.png */; };
+		6EEF0E652096DFC600A6AF8B /* voting-urn-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EEF0E642096DFC600A6AF8B /* voting-urn-4.png */; };
+		6EEF0E672096DFF000A6AF8B /* voting-urn-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EEF0E662096DFF000A6AF8B /* voting-urn-5.png */; };
+		6EF654BE2065C56D00B55B89 /* ContactoPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654BD2065C56D00B55B89 /* ContactoPress.png */; };
+		6EF654C02065C59200B55B89 /* Colombia Humana.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654BF2065C59200B55B89 /* Colombia Humana.png */; };
+		6EF654C42065C59800B55B89 /* ReglamentacionPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654C12065C59800B55B89 /* ReglamentacionPress.png */; };
+		6EF654C52065C59800B55B89 /* NoticiasPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654C22065C59800B55B89 /* NoticiasPress.png */; };
+		6EF654C62065C59800B55B89 /* PuntajeVotacionPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654C32065C59800B55B89 /* PuntajeVotacionPress.png */; };
+		6EF654C82065C59C00B55B89 /* imagen.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654C72065C59C00B55B89 /* imagen.png */; };
+		6EF654CD2065C5A500B55B89 /* Noticias.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654C92065C5A500B55B89 /* Noticias.png */; };
+		6EF654CE2065C5A500B55B89 /* Reglamentacion.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654CA2065C5A500B55B89 /* Reglamentacion.png */; };
+		6EF654CF2065C5A500B55B89 /* Contacto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654CB2065C5A500B55B89 /* Contacto.png */; };
+		6EF654D02065C5A500B55B89 /* PuntajeVotacion.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654CC2065C5A500B55B89 /* PuntajeVotacion.png */; };
+		6EF654D42065C5B100B55B89 /* FondoBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654D12065C5B100B55B89 /* FondoBtn.png */; };
+		6EF654D52065C5B100B55B89 /* InputText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654D22065C5B100B55B89 /* InputText.png */; };
+		6EF654D62065C5B100B55B89 /* LogoPetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654D32065C5B100B55B89 /* LogoPetro.png */; };
+		6EF654D82065C5B900B55B89 /* PetroFooter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654D72065C5B900B55B89 /* PetroFooter.png */; };
+		6EF654DF2065C5C200B55B89 /* IconoInstagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654D92065C5C100B55B89 /* IconoInstagram.png */; };
+		6EF654E02065C5C200B55B89 /* FondoView.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654DA2065C5C100B55B89 /* FondoView.png */; };
+		6EF654E12065C5C200B55B89 /* IconoContacto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654DB2065C5C100B55B89 /* IconoContacto.png */; };
+		6EF654E22065C5C200B55B89 /* IconoCorreo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654DC2065C5C200B55B89 /* IconoCorreo.png */; };
+		6EF654E32065C5C200B55B89 /* IconoTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654DD2065C5C200B55B89 /* IconoTwitter.png */; };
+		6EF654E42065C5C200B55B89 /* IconoFacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF654DE2065C5C200B55B89 /* IconoFacebook.png */; };
+		6EF654E62065D60C00B55B89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF654E52065D60C00B55B89 /* LoginViewController.swift */; };
+		6EF654E82065D62400B55B89 /* ContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF654E72065D62400B55B89 /* ContactoViewController.swift */; };
+		6EF654EA2065D65300B55B89 /* NoticiasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF654E92065D65300B55B89 /* NoticiasViewController.swift */; };
+		6EF654EC2065D6A900B55B89 /* ComoVotarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF654EB2065D6A900B55B89 /* ComoVotarViewController.swift */; };
+		6EFEE019209FD47B00DC9014 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EFEE01B209FD47B00DC9014 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E3FB4622064121400773B6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E3FB4452064121400773B6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E3FB44C2064121400773B6B;
+			remoteInfo = ColombiaHumana;
+		};
+		6E3FB46D2064121500773B6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E3FB4452064121400773B6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E3FB44C2064121400773B6B;
+			remoteInfo = ColombiaHumana;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A237E1FF3A773A9DB0A2CCA /* Pods-ColombiaHumana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColombiaHumana.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColombiaHumana/Pods-ColombiaHumana.release.xcconfig"; sourceTree = "<group>"; };
+		2FD551E67D140C10C8E9CC5E /* Pods-ColombiaHumana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColombiaHumana.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColombiaHumana/Pods-ColombiaHumana.debug.xcconfig"; sourceTree = "<group>"; };
+		6E02A34C20A89890007367F0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6E02A34D20A89890007367F0 /* banner_app.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner_app.jpeg; sourceTree = "<group>"; };
+		6E02A35020A8A33C007367F0 /* Guias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guias.png; sourceTree = "<group>"; };
+		6E02A35120A8A33C007367F0 /* Recomendaciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Recomendaciones.png; sourceTree = "<group>"; };
+		6E02A35220A8A33D007367F0 /* Anomalias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Anomalias.png; sourceTree = "<group>"; };
+		6E02A35320A8A33D007367F0 /* Registro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Registro.png; sourceTree = "<group>"; };
+		6E02A35420A8A33E007367F0 /* ReportarResultados.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReportarResultados.png; sourceTree = "<group>"; };
+		6E02A35520A8A33E007367F0 /* ReportarAnomalias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReportarAnomalias.png; sourceTree = "<group>"; };
+		6E02A35C20A8EC8C007367F0 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		6E02A35E20A9167C007367F0 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		6E02A35F20A9167D007367F0 /* nocheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nocheck.png; sourceTree = "<group>"; };
+		6E273593206571C700D3736D /* MenuViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewViewController.swift; sourceTree = "<group>"; };
+		6E273595206571DE00D3736D /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		6E27359820657DA200D3736D /* btnBackFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBackFinal.png; sourceTree = "<group>"; };
+		6E27359920657DA300D3736D /* FinalMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalMenu.png; sourceTree = "<group>"; };
+		6E3D83F1209D346F0010339C /* ColombiaHumana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColombiaHumana.entitlements; sourceTree = "<group>"; };
+		6E3FB44D2064121400773B6B /* ColombiaHumana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColombiaHumana.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E3FB4502064121400773B6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E3FB4522064121400773B6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E3FB4552064121400773B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E3FB4572064121400773B6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E3FB45A2064121400773B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E3FB45C2064121400773B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E3FB4612064121400773B6B /* ColombiaHumanaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColombiaHumanaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E3FB4652064121400773B6B /* ColombiaHumanaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColombiaHumanaTests.swift; sourceTree = "<group>"; };
+		6E3FB4672064121500773B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E3FB46C2064121500773B6B /* ColombiaHumanaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColombiaHumanaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E3FB4702064121500773B6B /* ColombiaHumanaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColombiaHumanaUITests.swift; sourceTree = "<group>"; };
+		6E3FB4722064121500773B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E3FB47F20656F3C00773B6B /* ColombiaHumana-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColombiaHumana-Bridging-Header.h"; sourceTree = "<group>"; };
+		6E3FB48020656F3D00773B6B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		6E3FB48120656F3D00773B6B /* ClaseGenerica.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaseGenerica.swift; sourceTree = "<group>"; };
+		6E3FB48220656F3D00773B6B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		6EAB79BA20976675004CA7A0 /* OlvideClaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlvideClaveViewController.swift; sourceTree = "<group>"; };
+		6EAB79BC209770DC004CA7A0 /* Footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Footer.png; sourceTree = "<group>"; };
+		6EAB79BE20977181004CA7A0 /* LogoPetroHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoPetroHeader.png; sourceTree = "<group>"; };
+		6EAB79C02097737A004CA7A0 /* ImagenPrincipal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImagenPrincipal.png; sourceTree = "<group>"; };
+		6EAB79C22098B459004CA7A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6EAB79C42098D614004CA7A0 /* Camara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camara.png; sourceTree = "<group>"; };
+		6EAB79C62099EEFB004CA7A0 /* FotoGuiaRapida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FotoGuiaRapida.png; sourceTree = "<group>"; };
+		6EEF0E582096C26C00A6AF8B /* DenunciarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenunciarViewController.swift; sourceTree = "<group>"; };
+		6EEF0E5A2096C28D00A6AF8B /* PuntajeVotacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuntajeVotacionViewController.swift; sourceTree = "<group>"; };
+		6EEF0E5C2096C2A000A6AF8B /* GuiaRapidaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiaRapidaViewController.swift; sourceTree = "<group>"; };
+		6EEF0E602096DF3A00A6AF8B /* voting-urn-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voting-urn-2.png"; sourceTree = "<group>"; };
+		6EEF0E622096DF7400A6AF8B /* voting-urn-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voting-urn-3.png"; sourceTree = "<group>"; };
+		6EEF0E642096DFC600A6AF8B /* voting-urn-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voting-urn-4.png"; sourceTree = "<group>"; };
+		6EEF0E662096DFF000A6AF8B /* voting-urn-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voting-urn-5.png"; sourceTree = "<group>"; };
+		6EF654BD2065C56D00B55B89 /* ContactoPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContactoPress.png; sourceTree = "<group>"; };
+		6EF654BF2065C59200B55B89 /* Colombia Humana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Colombia Humana.png"; sourceTree = "<group>"; };
+		6EF654C12065C59800B55B89 /* ReglamentacionPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReglamentacionPress.png; sourceTree = "<group>"; };
+		6EF654C22065C59800B55B89 /* NoticiasPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoticiasPress.png; sourceTree = "<group>"; };
+		6EF654C32065C59800B55B89 /* PuntajeVotacionPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PuntajeVotacionPress.png; sourceTree = "<group>"; };
+		6EF654C72065C59C00B55B89 /* imagen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagen.png; sourceTree = "<group>"; };
+		6EF654C92065C5A500B55B89 /* Noticias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Noticias.png; sourceTree = "<group>"; };
+		6EF654CA2065C5A500B55B89 /* Reglamentacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reglamentacion.png; sourceTree = "<group>"; };
+		6EF654CB2065C5A500B55B89 /* Contacto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contacto.png; sourceTree = "<group>"; };
+		6EF654CC2065C5A500B55B89 /* PuntajeVotacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PuntajeVotacion.png; sourceTree = "<group>"; };
+		6EF654D12065C5B100B55B89 /* FondoBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FondoBtn.png; sourceTree = "<group>"; };
+		6EF654D22065C5B100B55B89 /* InputText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InputText.png; sourceTree = "<group>"; };
+		6EF654D32065C5B100B55B89 /* LogoPetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoPetro.png; sourceTree = "<group>"; };
+		6EF654D72065C5B900B55B89 /* PetroFooter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PetroFooter.png; sourceTree = "<group>"; };
+		6EF654D92065C5C100B55B89 /* IconoInstagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconoInstagram.png; sourceTree = "<group>"; };
+		6EF654DA2065C5C100B55B89 /* FondoView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FondoView.png; sourceTree = "<group>"; };
+		6EF654DB2065C5C100B55B89 /* IconoContacto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconoContacto.png; sourceTree = "<group>"; };
+		6EF654DC2065C5C200B55B89 /* IconoCorreo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconoCorreo.png; sourceTree = "<group>"; };
+		6EF654DD2065C5C200B55B89 /* IconoTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconoTwitter.png; sourceTree = "<group>"; };
+		6EF654DE2065C5C200B55B89 /* IconoFacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconoFacebook.png; sourceTree = "<group>"; };
+		6EF654E52065D60C00B55B89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6EF654E72065D62400B55B89 /* ContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewController.swift; sourceTree = "<group>"; };
+		6EF654E92065D65300B55B89 /* NoticiasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasViewController.swift; sourceTree = "<group>"; };
+		6EF654EB2065D6A900B55B89 /* ComoVotarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComoVotarViewController.swift; sourceTree = "<group>"; };
+		6EFEE01A209FD47B00DC9014 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6EFEE01D209FD64D00DC9014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ABE0D78598439CEE07253D69 /* libPods-ColombiaHumana.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ColombiaHumana.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E3FB44A2064121400773B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				573405B32CE90311752C52E5 /* libPods-ColombiaHumana.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB45E2064121400773B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB4692064121500773B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E02A34B20A89880007367F0 /* Nuevas */ = {
+			isa = PBXGroup;
+			children = (
+				6E02A35E20A9167C007367F0 /* check.png */,
+				6E02A35F20A9167D007367F0 /* nocheck.png */,
+				6E02A35C20A8EC8C007367F0 /* picture.png */,
+				6E02A35220A8A33D007367F0 /* Anomalias.png */,
+				6E02A35020A8A33C007367F0 /* Guias.png */,
+				6E02A35120A8A33C007367F0 /* Recomendaciones.png */,
+				6E02A35320A8A33D007367F0 /* Registro.png */,
+				6E02A35520A8A33E007367F0 /* ReportarAnomalias.png */,
+				6E02A35420A8A33E007367F0 /* ReportarResultados.png */,
+				6E02A34D20A89890007367F0 /* banner_app.jpeg */,
+				6E02A34C20A89890007367F0 /* logo.png */,
+			);
+			path = Nuevas;
+			sourceTree = "<group>";
+		};
+		6E2735922065717300D3736D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				6E273593206571C700D3736D /* MenuViewViewController.swift */,
+				6E273595206571DE00D3736D /* MenuTableViewCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		6E27359720657D9600D3736D /* Multimedia */ = {
+			isa = PBXGroup;
+			children = (
+				6E02A34B20A89880007367F0 /* Nuevas */,
+				6EAB79C42098D614004CA7A0 /* Camara.png */,
+				6EF654DA2065C5C100B55B89 /* FondoView.png */,
+				6EF654DB2065C5C100B55B89 /* IconoContacto.png */,
+				6EF654DC2065C5C200B55B89 /* IconoCorreo.png */,
+				6EF654DE2065C5C200B55B89 /* IconoFacebook.png */,
+				6EAB79C62099EEFB004CA7A0 /* FotoGuiaRapida.png */,
+				6EF654D92065C5C100B55B89 /* IconoInstagram.png */,
+				6EF654DD2065C5C200B55B89 /* IconoTwitter.png */,
+				6E27359820657DA200D3736D /* btnBackFinal.png */,
+				6EF654D72065C5B900B55B89 /* PetroFooter.png */,
+				6EAB79C02097737A004CA7A0 /* ImagenPrincipal.png */,
+				6EF654D12065C5B100B55B89 /* FondoBtn.png */,
+				6EF654D22065C5B100B55B89 /* InputText.png */,
+				6EEF0E602096DF3A00A6AF8B /* voting-urn-2.png */,
+				6EEF0E642096DFC600A6AF8B /* voting-urn-4.png */,
+				6EF654D32065C5B100B55B89 /* LogoPetro.png */,
+				6E27359920657DA300D3736D /* FinalMenu.png */,
+				6EF654BD2065C56D00B55B89 /* ContactoPress.png */,
+				6EF654BF2065C59200B55B89 /* Colombia Humana.png */,
+				6EF654C22065C59800B55B89 /* NoticiasPress.png */,
+				6EF654C32065C59800B55B89 /* PuntajeVotacionPress.png */,
+				6EEF0E622096DF7400A6AF8B /* voting-urn-3.png */,
+				6EEF0E662096DFF000A6AF8B /* voting-urn-5.png */,
+				6EF654C12065C59800B55B89 /* ReglamentacionPress.png */,
+				6EF654C72065C59C00B55B89 /* imagen.png */,
+				6EF654CB2065C5A500B55B89 /* Contacto.png */,
+				6EF654C92065C5A500B55B89 /* Noticias.png */,
+				6EAB79BC209770DC004CA7A0 /* Footer.png */,
+				6EAB79BE20977181004CA7A0 /* LogoPetroHeader.png */,
+				6EF654CC2065C5A500B55B89 /* PuntajeVotacion.png */,
+				6EF654CA2065C5A500B55B89 /* Reglamentacion.png */,
+			);
+			path = Multimedia;
+			sourceTree = "<group>";
+		};
+		6E3FB4442064121400773B6B = {
+			isa = PBXGroup;
+			children = (
+				6E3FB44F2064121400773B6B /* ColombiaHumana */,
+				6E3FB4642064121400773B6B /* ColombiaHumanaTests */,
+				6E3FB46F2064121500773B6B /* ColombiaHumanaUITests */,
+				6E3FB44E2064121400773B6B /* Products */,
+				A280BD7A552442F5834BD4CA /* Pods */,
+				8968D0CE6D3C459E44FE9CFB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6E3FB44E2064121400773B6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E3FB44D2064121400773B6B /* ColombiaHumana.app */,
+				6E3FB4612064121400773B6B /* ColombiaHumanaTests.xctest */,
+				6E3FB46C2064121500773B6B /* ColombiaHumanaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E3FB44F2064121400773B6B /* ColombiaHumana */ = {
+			isa = PBXGroup;
+			children = (
+				6E3D83F1209D346F0010339C /* ColombiaHumana.entitlements */,
+				6E2735922065717300D3736D /* Menu */,
+				6E3FB47E206541FB00773B6B /* General */,
+				6E27359720657D9600D3736D /* Multimedia */,
+				6E3FB4502064121400773B6B /* AppDelegate.swift */,
+				6E3FB4522064121400773B6B /* ViewController.swift */,
+				6EF654E52065D60C00B55B89 /* LoginViewController.swift */,
+				6EF654E72065D62400B55B89 /* ContactoViewController.swift */,
+				6EF654E92065D65300B55B89 /* NoticiasViewController.swift */,
+				6EEF0E582096C26C00A6AF8B /* DenunciarViewController.swift */,
+				6EF654EB2065D6A900B55B89 /* ComoVotarViewController.swift */,
+				6EEF0E5A2096C28D00A6AF8B /* PuntajeVotacionViewController.swift */,
+				6EEF0E5C2096C2A000A6AF8B /* GuiaRapidaViewController.swift */,
+				6EAB79BA20976675004CA7A0 /* OlvideClaveViewController.swift */,
+				6E3FB4542064121400773B6B /* Main.storyboard */,
+				6E3FB4572064121400773B6B /* Assets.xcassets */,
+				6E3FB4592064121400773B6B /* LaunchScreen.storyboard */,
+				6E3FB45C2064121400773B6B /* Info.plist */,
+				6EAB79C22098B459004CA7A0 /* GoogleService-Info.plist */,
+				6EFEE01B209FD47B00DC9014 /* Localizable.strings */,
+			);
+			path = ColombiaHumana;
+			sourceTree = "<group>";
+		};
+		6E3FB4642064121400773B6B /* ColombiaHumanaTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E3FB4652064121400773B6B /* ColombiaHumanaTests.swift */,
+				6E3FB4672064121500773B6B /* Info.plist */,
+			);
+			path = ColombiaHumanaTests;
+			sourceTree = "<group>";
+		};
+		6E3FB46F2064121500773B6B /* ColombiaHumanaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E3FB4702064121500773B6B /* ColombiaHumanaUITests.swift */,
+				6E3FB4722064121500773B6B /* Info.plist */,
+			);
+			path = ColombiaHumanaUITests;
+			sourceTree = "<group>";
+		};
+		6E3FB47E206541FB00773B6B /* General */ = {
+			isa = PBXGroup;
+			children = (
+				6E3FB48120656F3D00773B6B /* ClaseGenerica.swift */,
+				6E3FB48220656F3D00773B6B /* SWRevealViewController.h */,
+				6E3FB48020656F3D00773B6B /* SWRevealViewController.m */,
+				6E3FB47F20656F3C00773B6B /* ColombiaHumana-Bridging-Header.h */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		8968D0CE6D3C459E44FE9CFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE0D78598439CEE07253D69 /* libPods-ColombiaHumana.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A280BD7A552442F5834BD4CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FD551E67D140C10C8E9CC5E /* Pods-ColombiaHumana.debug.xcconfig */,
+				2A237E1FF3A773A9DB0A2CCA /* Pods-ColombiaHumana.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E3FB44C2064121400773B6B /* ColombiaHumana */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3FB4752064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumana" */;
+			buildPhases = (
+				D360C466ADE9C49A4F8D9E8A /* [CP] Check Pods Manifest.lock */,
+				6E3FB4492064121400773B6B /* Sources */,
+				6E3FB44A2064121400773B6B /* Frameworks */,
+				6E3FB44B2064121400773B6B /* Resources */,
+				5B1B97B03C1D0E98AE4F942E /* [CP] Embed Pods Frameworks */,
+				C6F9A181AB65B26656712BE4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColombiaHumana;
+			productName = ColombiaHumana;
+			productReference = 6E3FB44D2064121400773B6B /* ColombiaHumana.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E3FB4602064121400773B6B /* ColombiaHumanaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3FB4782064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumanaTests" */;
+			buildPhases = (
+				6E3FB45D2064121400773B6B /* Sources */,
+				6E3FB45E2064121400773B6B /* Frameworks */,
+				6E3FB45F2064121400773B6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E3FB4632064121400773B6B /* PBXTargetDependency */,
+			);
+			name = ColombiaHumanaTests;
+			productName = ColombiaHumanaTests;
+			productReference = 6E3FB4612064121400773B6B /* ColombiaHumanaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E3FB46B2064121500773B6B /* ColombiaHumanaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3FB47B2064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumanaUITests" */;
+			buildPhases = (
+				6E3FB4682064121500773B6B /* Sources */,
+				6E3FB4692064121500773B6B /* Frameworks */,
+				6E3FB46A2064121500773B6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E3FB46E2064121500773B6B /* PBXTargetDependency */,
+			);
+			name = ColombiaHumanaUITests;
+			productName = ColombiaHumanaUITests;
+			productReference = 6E3FB46C2064121500773B6B /* ColombiaHumanaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E3FB4452064121400773B6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Daniel Muñoz Melendez";
+				TargetAttributes = {
+					6E3FB44C2064121400773B6B = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					6E3FB4602064121400773B6B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E3FB44C2064121400773B6B;
+					};
+					6E3FB46B2064121500773B6B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E3FB44C2064121400773B6B;
+					};
+				};
+			};
+			buildConfigurationList = 6E3FB4482064121400773B6B /* Build configuration list for PBXProject "ColombiaHumana" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E3FB4442064121400773B6B;
+			productRefGroup = 6E3FB44E2064121400773B6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E3FB44C2064121400773B6B /* ColombiaHumana */,
+				6E3FB4602064121400773B6B /* ColombiaHumanaTests */,
+				6E3FB46B2064121500773B6B /* ColombiaHumanaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E3FB44B2064121400773B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF654CF2065C5A500B55B89 /* Contacto.png in Resources */,
+				6EEF0E612096DF3A00A6AF8B /* voting-urn-2.png in Resources */,
+				6EAB79BD209770DC004CA7A0 /* Footer.png in Resources */,
+				6E02A36120A9167E007367F0 /* nocheck.png in Resources */,
+				6EF654E02065C5C200B55B89 /* FondoView.png in Resources */,
+				6E02A35620A8A33F007367F0 /* Guias.png in Resources */,
+				6EF654C62065C59800B55B89 /* PuntajeVotacionPress.png in Resources */,
+				6EF654BE2065C56D00B55B89 /* ContactoPress.png in Resources */,
+				6EF654D82065C5B900B55B89 /* PetroFooter.png in Resources */,
+				6E02A35B20A8A33F007367F0 /* ReportarAnomalias.png in Resources */,
+				6EAB79C72099EEFB004CA7A0 /* FotoGuiaRapida.png in Resources */,
+				6EF654E12065C5C200B55B89 /* IconoContacto.png in Resources */,
+				6E02A35820A8A33F007367F0 /* Anomalias.png in Resources */,
+				6EAB79C32098B459004CA7A0 /* GoogleService-Info.plist in Resources */,
+				6EF654D42065C5B100B55B89 /* FondoBtn.png in Resources */,
+				6EAB79C52098D614004CA7A0 /* Camara.png in Resources */,
+				6E3FB45B2064121400773B6B /* LaunchScreen.storyboard in Resources */,
+				6EFEE019209FD47B00DC9014 /* Localizable.strings in Resources */,
+				6EEF0E672096DFF000A6AF8B /* voting-urn-5.png in Resources */,
+				6EEF0E632096DF7500A6AF8B /* voting-urn-3.png in Resources */,
+				6EF654D52065C5B100B55B89 /* InputText.png in Resources */,
+				6EF654D02065C5A500B55B89 /* PuntajeVotacion.png in Resources */,
+				6EF654CE2065C5A500B55B89 /* Reglamentacion.png in Resources */,
+				6EF654D62065C5B100B55B89 /* LogoPetro.png in Resources */,
+				6E27359B20657DA300D3736D /* FinalMenu.png in Resources */,
+				6E3FB4582064121400773B6B /* Assets.xcassets in Resources */,
+				6E02A35920A8A33F007367F0 /* Registro.png in Resources */,
+				6E02A35D20A8EC8D007367F0 /* picture.png in Resources */,
+				6E27359A20657DA300D3736D /* btnBackFinal.png in Resources */,
+				6EEF0E652096DFC600A6AF8B /* voting-urn-4.png in Resources */,
+				6E3FB4562064121400773B6B /* Main.storyboard in Resources */,
+				6EF654C02065C59200B55B89 /* Colombia Humana.png in Resources */,
+				6EF654E22065C5C200B55B89 /* IconoCorreo.png in Resources */,
+				6E02A34F20A89890007367F0 /* banner_app.jpeg in Resources */,
+				6EF654CD2065C5A500B55B89 /* Noticias.png in Resources */,
+				6EF654DF2065C5C200B55B89 /* IconoInstagram.png in Resources */,
+				6EAB79C12097737A004CA7A0 /* ImagenPrincipal.png in Resources */,
+				6EF654C42065C59800B55B89 /* ReglamentacionPress.png in Resources */,
+				6EF654E32065C5C200B55B89 /* IconoTwitter.png in Resources */,
+				6E02A34E20A89890007367F0 /* logo.png in Resources */,
+				6E02A35A20A8A33F007367F0 /* ReportarResultados.png in Resources */,
+				6E02A36020A9167E007367F0 /* check.png in Resources */,
+				6EF654C82065C59C00B55B89 /* imagen.png in Resources */,
+				6EAB79BF20977182004CA7A0 /* LogoPetroHeader.png in Resources */,
+				6E02A35720A8A33F007367F0 /* Recomendaciones.png in Resources */,
+				6EF654E42065C5C200B55B89 /* IconoFacebook.png in Resources */,
+				6EF654C52065C59800B55B89 /* NoticiasPress.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB45F2064121400773B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB46A2064121500773B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B1B97B03C1D0E98AE4F942E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColombiaHumana/Pods-ColombiaHumana-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F9A181AB65B26656712BE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColombiaHumana/Pods-ColombiaHumana-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D360C466ADE9C49A4F8D9E8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ColombiaHumana-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E3FB4492064121400773B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF654E62065D60C00B55B89 /* LoginViewController.swift in Sources */,
+				6EEF0E592096C26C00A6AF8B /* DenunciarViewController.swift in Sources */,
+				6EF654E82065D62400B55B89 /* ContactoViewController.swift in Sources */,
+				6EEF0E5B2096C28D00A6AF8B /* PuntajeVotacionViewController.swift in Sources */,
+				6E3FB48420656F3D00773B6B /* ClaseGenerica.swift in Sources */,
+				6EF654EC2065D6A900B55B89 /* ComoVotarViewController.swift in Sources */,
+				6E3FB4532064121400773B6B /* ViewController.swift in Sources */,
+				6E273596206571DE00D3736D /* MenuTableViewCell.swift in Sources */,
+				6EEF0E5D2096C2A000A6AF8B /* GuiaRapidaViewController.swift in Sources */,
+				6E273594206571C700D3736D /* MenuViewViewController.swift in Sources */,
+				6EF654EA2065D65300B55B89 /* NoticiasViewController.swift in Sources */,
+				6E3FB4512064121400773B6B /* AppDelegate.swift in Sources */,
+				6E3FB48320656F3D00773B6B /* SWRevealViewController.m in Sources */,
+				6EAB79BB20976675004CA7A0 /* OlvideClaveViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB45D2064121400773B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E3FB4662064121400773B6B /* ColombiaHumanaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E3FB4682064121500773B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E3FB4712064121500773B6B /* ColombiaHumanaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E3FB4632064121400773B6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E3FB44C2064121400773B6B /* ColombiaHumana */;
+			targetProxy = 6E3FB4622064121400773B6B /* PBXContainerItemProxy */;
+		};
+		6E3FB46E2064121500773B6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E3FB44C2064121400773B6B /* ColombiaHumana */;
+			targetProxy = 6E3FB46D2064121500773B6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E3FB4542064121400773B6B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E3FB4552064121400773B6B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E3FB4592064121400773B6B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E3FB45A2064121400773B6B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6EFEE01B209FD47B00DC9014 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EFEE01A209FD47B00DC9014 /* en */,
+				6EFEE01D209FD64D00DC9014 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E3FB4732064121500773B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6E3FB4742064121500773B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E3FB4762064121500773B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FD551E67D140C10C8E9CC5E /* Pods-ColombiaHumana.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ColombiaHumana/ColombiaHumana.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HA58T8H7WL;
+				INFOPLIST_FILE = ColombiaHumana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumana;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColombiaHumana/General/ColombiaHumana-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6E3FB4772064121500773B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A237E1FF3A773A9DB0A2CCA /* Pods-ColombiaHumana.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ColombiaHumana/ColombiaHumana.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HA58T8H7WL;
+				INFOPLIST_FILE = ColombiaHumana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumana;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColombiaHumana/General/ColombiaHumana-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6E3FB4792064121500773B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MZHVP9R537;
+				INFOPLIST_FILE = ColombiaHumanaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumanaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColombiaHumana.app/ColombiaHumana";
+			};
+			name = Debug;
+		};
+		6E3FB47A2064121500773B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MZHVP9R537;
+				INFOPLIST_FILE = ColombiaHumanaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumanaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColombiaHumana.app/ColombiaHumana";
+			};
+			name = Release;
+		};
+		6E3FB47C2064121500773B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MZHVP9R537;
+				INFOPLIST_FILE = ColombiaHumanaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumanaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ColombiaHumana;
+			};
+			name = Debug;
+		};
+		6E3FB47D2064121500773B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MZHVP9R537;
+				INFOPLIST_FILE = ColombiaHumanaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColombiaHumanaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ColombiaHumana;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E3FB4482064121400773B6B /* Build configuration list for PBXProject "ColombiaHumana" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3FB4732064121500773B6B /* Debug */,
+				6E3FB4742064121500773B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E3FB4752064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumana" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3FB4762064121500773B6B /* Debug */,
+				6E3FB4772064121500773B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E3FB4782064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumanaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3FB4792064121500773B6B /* Debug */,
+				6E3FB47A2064121500773B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E3FB47B2064121500773B6B /* Build configuration list for PBXNativeTarget "ColombiaHumanaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3FB47C2064121500773B6B /* Debug */,
+				6E3FB47D2064121500773B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E3FB4452064121400773B6B /* Project object */;
+}
