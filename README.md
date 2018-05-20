@@ -1,3 +1,2 @@
 # testigos-ios
-
-Para la correcta ejecución del proyecto se debe tener en cuenta el Podfile
+* Proyecto desarrollado en Xcode 9.3, bajo el lenguaje Swfit 4 
