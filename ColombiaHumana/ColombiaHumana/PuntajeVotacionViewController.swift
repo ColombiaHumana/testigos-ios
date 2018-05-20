@@ -54,7 +54,6 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var View4: UIView!
     
     @IBOutlet weak var Scroll: UIScrollView!
-    @IBOutlet weak var TabBar: UITabBar!
     @IBOutlet weak var ViewBotones: UIView!
     @IBOutlet weak var ViewCamara: UIView!
     
@@ -63,14 +62,7 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var BtnEnviar: UIButton!
     @IBOutlet weak var ImagenFoto: UIImageView!
     
-    @IBOutlet weak var ItemUno: UITabBarItem!
-    @IBOutlet weak var ItemDos: UITabBarItem!
-    @IBOutlet weak var ItemTres: UITabBarItem!
-    
-    @IBOutlet weak var ViewTabBar: UIView!
-    @IBOutlet weak var ViewItem1: UIButton!
-    @IBOutlet weak var ViewItem2: UIButton!
-    @IBOutlet weak var ViewItem3: UIButton!
+    @IBOutlet weak var ScrollViewTabBar: UIScrollView!
     
     var ImgFoto: UIImageView = UIImageView()
     var ref: DatabaseReference!
@@ -78,21 +70,23 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     let CGenerica = ClaseGenerica()
     var NumeroMesa = ""
     var token = ""
-    var llave:[String] = []
-    var llave1:[String] = []
     var Total: Int? = 0
     var Total2: Int? = 0
     var model = ""
+    var widthButton:Double = 0.0
+    var heightButton :Double = 0.0
+    var cantidadMesas = 0
+    var widthScroll :Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        llave = ["Id0", "Id1", "Id2"]
-        llave1 = ["N0", "N1", "N2"]
         token = CGenerica.LeerPlist(Nombre: "Usuario", Llave: "Id")
         ref = Database.database().reference()
-        self.Peticion()
+        model = UIDevice.current.modelName
+        self.Scroll.contentSize.height = 630 + self.ViewBotones.frame.size.height
+        self.heightButton = Double(self.ScrollViewTabBar.frame.size.height)
         
-        self.Scroll.frame = CGRect(x: self.Scroll.frame.origin.x , y: self.Scroll.frame.origin.y, width: self.view.frame.size.width, height:  self.Scroll.frame.size.height)
+        //self.Scroll.frame = CGRect(x: self.Scroll.frame.origin.x , y: self.Scroll.frame.origin.y, width: self.view.frame.size.width, height:  self.view.frame.size.height - self.Scroll.frame.origin.y)
         
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
         button.setTitle("Aceptar", for: UIControlState())
@@ -101,96 +95,85 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
         button.adjustsImageWhenHighlighted = false
         button.addTarget(self, action: #selector(PuntajeVotacionViewController.Done(_:)), for: UIControlEvents.touchUpInside)
         
-        self.ViewBotones.frame = CGRect(x:0 , y: self.view.frame.size.height - self.ViewBotones.frame.size.height , width: self.view.frame.size.width, height: self.ViewBotones.frame.size.height)
-         self.BtnEnviar.frame = CGRect(x:8, y: self.ViewBotones.frame.size.height - self.BtnEnviar.frame.size.height - 5, width: self.ViewBotones.frame.size.width - 16, height: self.BtnEnviar.frame.size.height)
+        self.ViewBotones.frame = CGRect(x:0 , y: self.View4.frame.origin.y + 5 , width: self.view.frame.size.width, height: self.ViewBotones.frame.size.height)
+        self.BtnEnviar.frame = CGRect(x:8, y: self.ViewBotones.frame.size.height - self.BtnEnviar.frame.size.height - 5, width: self.ViewBotones.frame.size.width - 16, height: self.BtnEnviar.frame.size.height)
         self.ViewCamara.frame = CGRect(x:8 , y:8 , width: self.view.frame.size.width - 16, height: self.ViewCamara.frame.size.height)
         self.BtnCamara.frame = CGRect(x:0, y: self.ViewCamara.frame.size.height - self.BtnCamara.frame.size.height , width: self.ViewCamara.frame.size.width, height: self.BtnCamara.frame.size.height)
         self.ImagenFoto.frame = CGRect(x: self.ViewCamara.frame.size.width/2 - self.ImagenFoto.frame.size.width/2, y: self.ImagenFoto.frame.origin.y, width: self.ImagenFoto.frame.size.width, height: self.ImagenFoto.frame.size.height)
-        self.Scroll.frame = CGRect(x:self.Scroll.frame.origin.x , y:self.Scroll.frame.origin.y , width: self.view.frame.size.width, height: self.view.frame.size.height - self.Scroll.frame.origin.y - self.ViewBotones.frame.size.height)
-        
-       
-        
-        self.Scroll.contentSize.height = 630
-        
-        model = UIDevice.current.modelName
-        
-        self.ViewTabBar.frame = CGRect(x: self.ViewTabBar.frame.origin.x, y:self.ViewTabBar.frame.origin.y, width:self.view.frame.size.width , height:self.ViewTabBar.frame.size.height )
-        self.ViewItem1.frame = CGRect(x: 0, y: 0, width:self.ViewTabBar.frame.size.width/3 , height:self.ViewTabBar.frame.size.height )
-        self.ViewItem2.frame = CGRect(x: self.ViewItem1.frame.size.width, y: 0, width:self.ViewTabBar.frame.size.width/3 , height:self.ViewTabBar.frame.size.height )
-        self.ViewItem3.frame = CGRect(x: self.ViewItem2.frame.size.width + self.ViewItem2.frame.origin.x, y: 0, width:self.ViewTabBar.frame.size.width/3 , height:self.ViewTabBar.frame.size.height )
-        
-        self.ViewItem1.setTitle(self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave1[0]), for: .normal)
-        self.ViewItem2.setTitle(self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave1[1]), for: .normal)
-        self.ViewItem3.setTitle(self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave1[2]), for: .normal)
-        NumeroMesa = self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave[0])
-        self.ViewItem1.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
-        self.ViewItem1.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.Scroll.frame = CGRect(x:self.Scroll.frame.origin.x , y:self.Scroll.frame.origin.y , width: self.view.frame.size.width, height: self.view.frame.size.height - self.Scroll.frame.origin.y)
+
+        self.ScrollViewTabBar.frame = CGRect(x: 0, y:self.ScrollViewTabBar.frame.origin.y, width:self.view.frame.size.width , height:self.ScrollViewTabBar.frame.size.height )
         
         if (model == "iPhone 4" || model == "iPad"){
-            self.ViewTabBar.frame = CGRect(x: self.ViewTabBar.frame.origin.x, y:self.ViewTabBar.frame.origin.y - 10, width:self.view.frame.size.width , height:self.ViewTabBar.frame.size.height )
+            self.ScrollViewTabBar.frame = CGRect(x: self.ScrollViewTabBar.frame.origin.x, y:self.ScrollViewTabBar.frame.origin.y - 10, width:self.view.frame.size.width , height:self.ScrollViewTabBar.frame.size.height )
         }else{
             if(model == "iPhone X"){
-                self.ViewTabBar.frame = CGRect(x: 0, y:75, width:self.view.frame.size.width , height:self.ViewTabBar.frame.size.height )
+                self.ScrollViewTabBar.frame = CGRect(x: 0, y:75, width:self.view.frame.size.width , height:self.ScrollViewTabBar.frame.size.height )
             }
         }
-        CGenerica.GuardarPlist(Nombre: "Votos", Llave: "Prueba", Valor: "Prueba")
+    
+        //Nuevo para las mesas
+        let cantidad = Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: "CantidadMesas"))
+        self.cantidadMesas = cantidad!
+        if (self.cantidadMesas >= 3){
+            self.widthButton = Double(self.ScrollViewTabBar.frame.size.width/3)
+        }else{
+            if (self.cantidadMesas == 2 ){
+                self.widthButton = Double(self.ScrollViewTabBar.frame.size.width/2)
+            }else{
+                self.widthButton = Double(self.ScrollViewTabBar.frame.size.width)
+            }
+        }
         
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtPetro"){
-            self.TxtPetro.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtPetro")
+        for index in 1...self.cantidadMesas{
+            let indes = Double(index - 1)
+            let a = Double(self.widthButton * indes)
+            let btn = UIButton()
+            btn.frame = CGRect(x: a , y: 0, width:self.widthButton, height: self.heightButton)
+            btn.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            btn.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
+            btn.setTitle(self.CGenerica.LeerPlist(Nombre: "MesasTotalNombres", Llave: String(index)), for: .normal)
+            btn.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
+            btn.tag = Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))!
+            self.ScrollViewTabBar.addSubview(btn)
+     //       CGenerica.GuardarPlist(Nombre: "Votos" + , Llave: "Prueba", Valor: "Prueba")
         }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtDuque"){
-            self.TxtDuque.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtDuque")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtCalle"){
-            self.TxtCalle.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtCalle")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtTrujillo"){
-            self.TxtTrujillo.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtTrujillo")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtFajardo"){
-            self.TxtFajardo.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtFajardo")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtViviane"){
-            self.TxtViviane.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtViviane")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtPiedad"){
-            self.TxtPiedad.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtPiedad")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtLleras"){
-            self.TxtLleras.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtLleras")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotosValidos"){
-            self.TotalVotosValidos.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotosValidos")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotosBlanco"){
-            self.TotalVotosBlanco.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotosBlanco")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "VotosNulos"){
-            self.VotosNulos.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "VotosNulos")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "VotosNoMarcados"){
-            self.VotosNoMarcados.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "VotosNoMarcados")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotos"){
-            self.TotalVotos.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TotalVotos")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtTotalVotosMesa"){
-            self.TxtTotalVotosMesa.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtTotalVotosMesa")
-        }
-        if "0" != CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtBlanco"){
-            self.TxtBlanco.text = CGenerica.LeerPlist(Nombre: "Votos", Llave: "TxtBlanco")
-        }
-        self.Total = (self.TxtPetro.text as! NSString).integerValue + (self.TxtBlanco.text as! NSString).integerValue + (self.TxtDuque.text as! NSString).integerValue + (self.TxtCalle.text as! NSString).integerValue + (self.TxtTrujillo.text as! NSString).integerValue + (self.TxtFajardo.text as! NSString).integerValue + (self.TxtViviane.text as! NSString).integerValue + (self.TxtPiedad.text as! NSString).integerValue + (self.TxtLleras.text as! NSString).integerValue
-        self.Total2 = self.Total! + (self.TotalVotosBlanco.text as! NSString).integerValue  + (self.VotosNulos.text as! NSString).integerValue + (self.VotosNoMarcados.text as! NSString).integerValue
+        let cmesas = Double(self.cantidadMesas)
+        self.widthScroll = Float(Double(self.widthButton * cmesas))
+        self.ScrollViewTabBar.contentSize.width = CGFloat(self.widthScroll)
+        
+        //Actiuvar boton 1 al iniciar
+        let tmpButton = self.view.viewWithTag(Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: "1"))!) as? UIButton
+        tmpButton?.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        tmpButton?.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
+        self.NumeroMesa = self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: "1")
+        self.MostrarDatos(MesaV: NumeroMesa)
+        //Fin activar el boton
+        //Fin de nuevo para las mesas
+        
+        //Accion a la imagen
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PuntajeVotacionViewController.ImagenPress))
+        ImagenFoto.addGestureRecognizer(tap)
+        ImagenFoto.isUserInteractionEnabled = true
+        
+        self.View1.isHidden = true
+        self.View2.isHidden = true
+        self.View3.isHidden = true
+        self.View4.isHidden = true
+        
+        self.Label11.textColor = #colorLiteral(red: 0.4078431373, green: 0.1921568627, blue: 0.5490196078, alpha: 1)
+        self.Label15.textColor = #colorLiteral(red: 0.4078431373, green: 0.1921568627, blue: 0.5490196078, alpha: 1)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    @objc func ImagenPress(){
+        self.AccionCapturarFoto()
+    }
     
     @IBAction func Enviar(_ sender: Any) {
-        
         let alert = UIAlertController(title: "Confirmación", message: "¿Desea enviar los datos suministrados?", preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.addAction(UIAlertAction(title: "Enviar", style: UIAlertActionStyle.default, handler: { action in
            
@@ -253,10 +236,7 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
                                     self.perform(#selector(self.Ir), with: nil, afterDelay: 0.1)
                                 }))
                                 self.present(alert, animated: true, completion: nil)
-                                
-                                //Para borrar el icono cuando se envie el reporte a todas las mesas este CGenerica.GuardarPlist(Nombre: (self.CGenerica.LeerPlist(Nombre: "Mesitas", Llave: "Listo", Valor: "1") debe tomar el valor de 1
-                                
-                                //self.CGenerica.GuardarPlist(Nombre:"Mesitas", Llave: "Listo", Valor: "1")
+                                self.CGenerica.GuardarPlist(Nombre:"Enviados" + self.NumeroMesa, Llave: "Listo", Valor: "1")
                                 
                             }else{
                                 self.Alerta(titulo: "Error", texto: "No se pudo realizar la operación.")
@@ -277,6 +257,10 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     
     
     @IBAction func SeleccionarFoto(_ sender: Any) {
+        self.AccionCapturarFoto()
+    }
+    
+    func AccionCapturarFoto(){
         let alert = UIAlertController(title: "Información", message: "A continuación podra seleccionar la imagen que desea enviar con el reporte.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Tomar Foto", style: UIAlertActionStyle.default, handler: { action in
             self.TomarFoto()
@@ -346,27 +330,29 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         self.Total = (self.TxtPetro.text as! NSString).integerValue + (self.TxtBlanco.text as! NSString).integerValue + (self.TxtDuque.text as! NSString).integerValue + (self.TxtCalle.text as! NSString).integerValue + (self.TxtTrujillo.text as! NSString).integerValue + (self.TxtFajardo.text as! NSString).integerValue + (self.TxtViviane.text as! NSString).integerValue + (self.TxtPiedad.text as! NSString).integerValue + (self.TxtLleras.text as! NSString).integerValue
         self.TotalVotosValidos.text = "\(String(describing: self.Total!))"
         self.Total2 = self.Total! + (self.TotalVotosBlanco.text as! NSString).integerValue  + (self.VotosNulos.text as! NSString).integerValue + (self.VotosNoMarcados.text as! NSString).integerValue
         self.TotalVotos.text = "\(String(describing: self.Total2!))"
         
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtPetro", Valor: ((self.TxtPetro.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtDuque", Valor: ((self.TxtDuque.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtCalle", Valor: ((self.TxtCalle.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtTrujillo", Valor: ((self.TxtTrujillo.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtFajardo", Valor: ((self.TxtFajardo.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtViviane", Valor: ((self.TxtViviane.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtPiedad", Valor: ((self.TxtPiedad.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtLleras", Valor: ((self.TxtLleras.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotosValidos", Valor: ((self.TotalVotosValidos.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotosBlanco", Valor: ((self.TotalVotosBlanco.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "VotosNulos", Valor: ((self.VotosNulos.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "VotosNoMarcados", Valor: ((self.VotosNoMarcados.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotos", Valor: ((self.TotalVotos.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtTotalVotosMesa", Valor: ((self.TxtTotalVotosMesa.text as! NSString) as String))
-        self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtBlanco", Valor: ((self.TxtBlanco.text as! NSString) as String))
+        self.Label11.text = "TOTAL VOTOS VALIDOS: \(String(describing: self.Total!))"
+        self.Label15.text = "TOTAL VOTOS: \(String(describing: self.Total2!))"
+        
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtPetro", Valor: ((self.TxtPetro.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtDuque", Valor: ((self.TxtDuque.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtCalle", Valor: ((self.TxtCalle.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtTrujillo", Valor: ((self.TxtTrujillo.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtFajardo", Valor: ((self.TxtFajardo.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtViviane", Valor: ((self.TxtViviane.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtPiedad", Valor: ((self.TxtPiedad.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtLleras", Valor: ((self.TxtLleras.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotosValidos", Valor: ((self.TotalVotosValidos.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotosBlanco", Valor: ((self.TotalVotosBlanco.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "VotosNulos", Valor: ((self.VotosNulos.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "VotosNoMarcados", Valor: ((self.VotosNoMarcados.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotos", Valor: ((self.TotalVotos.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtTotalVotosMesa", Valor: ((self.TxtTotalVotosMesa.text as! NSString) as String))
+        self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtBlanco", Valor: ((self.TxtBlanco.text as! NSString) as String))
         
         NotificationCenter.default.addObserver(self, selector: #selector(PuntajeVotacionViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
@@ -428,79 +414,27 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
             self.Total2 = self.Total! + (self.TotalVotosBlanco.text as! NSString).integerValue  + (self.VotosNulos.text as! NSString).integerValue + (self.VotosNoMarcados.text as! NSString).integerValue
             self.TotalVotos.text = "\(String(describing: self.Total2!))"
             
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtPetro", Valor: ((self.TxtPetro.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtDuque", Valor: ((self.TxtDuque.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtCalle", Valor: ((self.TxtCalle.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtTrujillo", Valor: ((self.TxtTrujillo.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtFajardo", Valor: ((self.TxtFajardo.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtViviane", Valor: ((self.TxtViviane.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtPiedad", Valor: ((self.TxtPiedad.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtLleras", Valor: ((self.TxtLleras.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotosValidos", Valor: ((self.TotalVotosValidos.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotosBlanco", Valor: ((self.TotalVotosBlanco.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "VotosNulos", Valor: ((self.VotosNulos.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "VotosNoMarcados", Valor: ((self.VotosNoMarcados.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TotalVotos", Valor: ((self.TotalVotos.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtTotalVotosMesa", Valor: ((self.TxtTotalVotosMesa.text as! NSString) as String))
-            self.CGenerica.GuardarPlist(Nombre: "Votos", Llave: "TxtBlanco", Valor: ((self.TxtBlanco.text as! NSString) as String))
+            self.Label11.text = "TOTAL VOTOS VALIDOS: \(String(describing: self.Total!))"
+            self.Label15.text = "TOTAL VOTOS: \(String(describing: self.Total2!))"
+            
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtPetro", Valor: ((self.TxtPetro.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtDuque", Valor: ((self.TxtDuque.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtCalle", Valor: ((self.TxtCalle.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtTrujillo", Valor: ((self.TxtTrujillo.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtFajardo", Valor: ((self.TxtFajardo.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtViviane", Valor: ((self.TxtViviane.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtPiedad", Valor: ((self.TxtPiedad.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtLleras", Valor: ((self.TxtLleras.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotosValidos", Valor: ((self.TotalVotosValidos.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotosBlanco", Valor: ((self.TotalVotosBlanco.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "VotosNulos", Valor: ((self.VotosNulos.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "VotosNoMarcados", Valor: ((self.VotosNoMarcados.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TotalVotos", Valor: ((self.TotalVotos.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtTotalVotosMesa", Valor: ((self.TxtTotalVotosMesa.text as! NSString) as String))
+            self.CGenerica.GuardarPlist(Nombre: "Votos" + self.NumeroMesa, Llave: "TxtBlanco", Valor: ((self.TxtBlanco.text as! NSString) as String))
         }
     }
-    
-    @IBAction func ViewItem1Press(_ sender: Any) {
-        NumeroMesa = self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave[0])
-        self.ViewItem1.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
-        self.ViewItem1.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        self.ViewItem2.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.ViewItem3.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    }
-    
-    @IBAction func WebItem2Press(_ sender: Any) {
-        NumeroMesa = self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave[1])
-        self.ViewItem2.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
-        self.ViewItem2.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        self.ViewItem1.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.ViewItem3.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    }
-    
-    @IBAction func ViewItem3Press(_ sender: Any) {
-        NumeroMesa = self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: llave[2])
-        self.ViewItem3.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
-        self.ViewItem3.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        self.ViewItem2.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.ViewItem1.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    }
-    
-    func Peticion (){
-        let url:URL = URL(string: CGenerica.Url()+"/api/user")!
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer "+token, forHTTPHeaderField:"Authorization" )
-        
-        let task = session.dataTask(with: request as URLRequest) {(
-            data, response, error) in
-            guard let data = data, let _:URLResponse = response, error == nil else {
-                print("error")
-                return
-            }
-            let dataString =  String(data: data, encoding: String.Encoding.utf8)
-            let dict = self.convertToDictionary(text: dataString!)
-            if let _ = dict?["user"]{
-                let Resultado = dict?["user"] as! NSDictionary
-                let mesas = Resultado["tables"] as! NSArray
-                for a in 0...2{
-                    let b = String(format: "%@", (mesas[a] as! NSDictionary)["id"]! as! CVarArg)
-                    self.CGenerica.GuardarPlist(Nombre: "Mesa", Llave: self.llave[a], Valor: b)
-                    self.CGenerica.GuardarPlist(Nombre: "Mesa", Llave:  self.llave1[a], Valor: (mesas[a] as! NSDictionary)["name"]! as! String)
-                }
-            }else{
-                self.Alerta(titulo: "Error", texto: "No hay mesas")
-            }
-        }
-        task.resume()
-    }
-    
+ 
     func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
@@ -520,6 +454,168 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
         let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let exampleVC = storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         present(exampleVC, animated: true)
+    }
+    
+    func MostrarDatos(MesaV : String){
+        self.LimpiarTxt()
+        if "1" == CGenerica.LeerPlist(Nombre: "Enviados" + MesaV, Llave: "Listo"){
+            self.DeshabilitarTxt()
+        }else{
+            self.HabilitarTxt()
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtPetro"){
+            self.TxtPetro.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtPetro")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtDuque"){
+            self.TxtDuque.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtDuque")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtCalle"){
+            self.TxtCalle.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtCalle")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtTrujillo"){
+            self.TxtTrujillo.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtTrujillo")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtFajardo"){
+            self.TxtFajardo.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtFajardo")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtViviane"){
+            self.TxtViviane.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtViviane")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtPiedad"){
+            self.TxtPiedad.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtPiedad")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtLleras"){
+            self.TxtLleras.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtLleras")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotosValidos"){
+            self.TotalVotosValidos.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotosValidos")
+            self.Label11.text = "TOTAL VOTOS VALIDOS: \(CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotosValidos"))"
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotosBlanco"){
+            self.TotalVotosBlanco.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotosBlanco")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "VotosNulos"){
+            self.VotosNulos.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "VotosNulos")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "VotosNoMarcados"){
+            self.VotosNoMarcados.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "VotosNoMarcados")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotos"){
+            self.TotalVotos.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotos")
+            self.Label15.text = "TOTAL VOTOS: \(CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TotalVotos"))"
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtTotalVotosMesa"){
+            self.TxtTotalVotosMesa.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtTotalVotosMesa")
+        }
+        if "0" != CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtBlanco"){
+            self.TxtBlanco.text = CGenerica.LeerPlist(Nombre: "Votos" + MesaV, Llave: "TxtBlanco")
+        }
+        self.Total = (self.TxtPetro.text as! NSString).integerValue + (self.TxtBlanco.text as! NSString).integerValue + (self.TxtDuque.text as! NSString).integerValue + (self.TxtCalle.text as! NSString).integerValue + (self.TxtTrujillo.text as! NSString).integerValue + (self.TxtFajardo.text as! NSString).integerValue + (self.TxtViviane.text as! NSString).integerValue + (self.TxtPiedad.text as! NSString).integerValue + (self.TxtLleras.text as! NSString).integerValue
+        self.Total2 = self.Total! + (self.TotalVotosBlanco.text as! NSString).integerValue  + (self.VotosNulos.text as! NSString).integerValue + (self.VotosNoMarcados.text as! NSString).integerValue
+    }
+    
+    func LimpiarTxt(){
+        self.TxtPetro.text = ""
+        self.TxtDuque.text = ""
+        self.TxtCalle.text = ""
+        self.TxtTrujillo.text = ""
+        self.TxtFajardo.text = ""
+        self.TxtViviane.text = ""
+        self.TxtPiedad.text = ""
+        self.TxtLleras.text = ""
+        self.TotalVotosValidos.text = ""
+        self.TotalVotosBlanco.text = ""
+        self.VotosNulos.text = ""
+        self.VotosNoMarcados.text = ""
+        self.TotalVotos.text = ""
+        self.TxtTotalVotosMesa.text = ""
+        self.TxtBlanco.text = ""
+        self.Label11.text = "TOTAL VOTOS VALIDOS: 0"
+        self.Label15.text = "TOTAL VOTOS: 0"
+    }
+    
+    func DeshabilitarTxt(){
+        self.TxtPetro.isEnabled = false
+        self.TxtDuque.isEnabled = false
+        self.TxtCalle.isEnabled = false
+        self.TxtTrujillo.isEnabled = false
+        self.TxtFajardo.isEnabled = false
+        self.TxtViviane.isEnabled = false
+        self.TxtPiedad.isEnabled = false
+        self.TotalVotosValidos.isEnabled = false
+        self.TotalVotosBlanco.isEnabled = false
+        self.VotosNulos.isEnabled = false
+        self.VotosNoMarcados.isEnabled = false
+        self.TotalVotos.isEnabled = false
+        self.TxtTotalVotosMesa.isEnabled = false
+        self.TxtBlanco.isEnabled = false
+        self.BtnCamara.isEnabled = false
+        self.BtnEnviar.isEnabled = false
+        self.ImagenFoto.isHidden = true
+        
+        self.TxtPetro.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtDuque.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtCalle.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtTrujillo.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtFajardo.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtViviane.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtPiedad.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TotalVotosValidos.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TotalVotosBlanco.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.VotosNoMarcados.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.VotosNulos.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TotalVotos.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtBlanco.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtTotalVotosMesa.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.TxtLleras.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    }
+    
+    func HabilitarTxt(){
+        self.TxtPetro.isEnabled = true
+        self.TxtDuque.isEnabled = true
+        self.TxtCalle.isEnabled = true
+        self.TxtTrujillo.isEnabled = true
+        self.TxtFajardo.isEnabled = true
+        self.TxtViviane.isEnabled = true
+        self.TxtPiedad.isEnabled = true
+        self.TotalVotosBlanco.isEnabled = true
+        self.VotosNulos.isEnabled = true
+        self.VotosNoMarcados.isEnabled = true
+        self.TxtTotalVotosMesa.isEnabled = true
+        self.TxtBlanco.isEnabled = true
+        self.BtnCamara.isEnabled = true
+        self.BtnEnviar.isEnabled = true
+        self.ImagenFoto.isHidden = false
+        
+        self.TxtPetro.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtDuque.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtCalle.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtTrujillo.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtFajardo.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtViviane.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtPiedad.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TotalVotosBlanco.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.VotosNoMarcados.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.VotosNulos.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtBlanco.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtTotalVotosMesa.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.TxtLleras.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        let btnsendtag: UIButton = sender
+        for index in 1...self.cantidadMesas{
+            if(Int(btnsendtag.tag) == Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))){
+                NumeroMesa = String(btnsendtag.tag)
+                btnsendtag.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
+                btnsendtag.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                self.MostrarDatos(MesaV: NumeroMesa)
+            }else{
+                let tmpButton = self.view.viewWithTag(Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))!) as? UIButton
+                tmpButton?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                tmpButton?.setTitleColor(#colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1), for: UIControlState.normal)
+            }
+        }
     }
     
 }

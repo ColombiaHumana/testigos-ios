@@ -39,6 +39,9 @@
 		6EAB79C32098B459004CA7A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C22098B459004CA7A0 /* GoogleService-Info.plist */; };
 		6EAB79C52098D614004CA7A0 /* Camara.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C42098D614004CA7A0 /* Camara.png */; };
 		6EAB79C72099EEFB004CA7A0 /* FotoGuiaRapida.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB79C62099EEFB004CA7A0 /* FotoGuiaRapida.png */; };
+		6EBED5E120B0B8E60072EBC0 /* Asistencias.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EBED5E020B0B8E50072EBC0 /* Asistencias.png */; };
+		6EBED5E320B0D0110072EBC0 /* AsistenciaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBED5E220B0D0110072EBC0 /* AsistenciaViewController.swift */; };
+		6EBED5E520B0D4070072EBC0 /* AsistenciaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBED5E420B0D4070072EBC0 /* AsistenciaTableViewCell.swift */; };
 		6EEF0E592096C26C00A6AF8B /* DenunciarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E582096C26C00A6AF8B /* DenunciarViewController.swift */; };
 		6EEF0E5B2096C28D00A6AF8B /* PuntajeVotacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E5A2096C28D00A6AF8B /* PuntajeVotacionViewController.swift */; };
 		6EEF0E5D2096C2A000A6AF8B /* GuiaRapidaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF0E5C2096C2A000A6AF8B /* GuiaRapidaViewController.swift */; };
@@ -133,6 +136,9 @@
 		6EAB79C22098B459004CA7A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EAB79C42098D614004CA7A0 /* Camara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camara.png; sourceTree = "<group>"; };
 		6EAB79C62099EEFB004CA7A0 /* FotoGuiaRapida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FotoGuiaRapida.png; sourceTree = "<group>"; };
+		6EBED5E020B0B8E50072EBC0 /* Asistencias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Asistencias.png; sourceTree = "<group>"; };
+		6EBED5E220B0D0110072EBC0 /* AsistenciaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsistenciaViewController.swift; sourceTree = "<group>"; };
+		6EBED5E420B0D4070072EBC0 /* AsistenciaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsistenciaTableViewCell.swift; sourceTree = "<group>"; };
 		6EEF0E582096C26C00A6AF8B /* DenunciarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenunciarViewController.swift; sourceTree = "<group>"; };
 		6EEF0E5A2096C28D00A6AF8B /* PuntajeVotacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuntajeVotacionViewController.swift; sourceTree = "<group>"; };
 		6EEF0E5C2096C2A000A6AF8B /* GuiaRapidaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiaRapidaViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 		6E02A34B20A89880007367F0 /* Nuevas */ = {
 			isa = PBXGroup;
 			children = (
+				6EBED5E020B0B8E50072EBC0 /* Asistencias.png */,
 				6E02A35E20A9167C007367F0 /* check.png */,
 				6E02A35F20A9167D007367F0 /* nocheck.png */,
 				6E02A35C20A8EC8C007367F0 /* picture.png */,
@@ -292,6 +299,8 @@
 				6E27359720657D9600D3736D /* Multimedia */,
 				6E3FB4502064121400773B6B /* AppDelegate.swift */,
 				6E3FB4522064121400773B6B /* ViewController.swift */,
+				6EBED5E220B0D0110072EBC0 /* AsistenciaViewController.swift */,
+				6EBED5E420B0D4070072EBC0 /* AsistenciaTableViewCell.swift */,
 				6EF654E52065D60C00B55B89 /* LoginViewController.swift */,
 				6EF654E72065D62400B55B89 /* ContactoViewController.swift */,
 				6EF654E92065D65300B55B89 /* NoticiasViewController.swift */,
@@ -497,6 +506,7 @@
 				6EF654CE2065C5A500B55B89 /* Reglamentacion.png in Resources */,
 				6EF654D62065C5B100B55B89 /* LogoPetro.png in Resources */,
 				6E27359B20657DA300D3736D /* FinalMenu.png in Resources */,
+				6EBED5E120B0B8E60072EBC0 /* Asistencias.png in Resources */,
 				6E3FB4582064121400773B6B /* Assets.xcassets in Resources */,
 				6E02A35920A8A33F007367F0 /* Registro.png in Resources */,
 				6E02A35D20A8EC8D007367F0 /* picture.png in Resources */,
@@ -599,6 +609,7 @@
 				6EF654E82065D62400B55B89 /* ContactoViewController.swift in Sources */,
 				6EEF0E5B2096C28D00A6AF8B /* PuntajeVotacionViewController.swift in Sources */,
 				6E3FB48420656F3D00773B6B /* ClaseGenerica.swift in Sources */,
+				6EBED5E320B0D0110072EBC0 /* AsistenciaViewController.swift in Sources */,
 				6EF654EC2065D6A900B55B89 /* ComoVotarViewController.swift in Sources */,
 				6E3FB4532064121400773B6B /* ViewController.swift in Sources */,
 				6E273596206571DE00D3736D /* MenuTableViewCell.swift in Sources */,
@@ -608,6 +619,7 @@
 				6E3FB4512064121400773B6B /* AppDelegate.swift in Sources */,
 				6E3FB48320656F3D00773B6B /* SWRevealViewController.m in Sources */,
 				6EAB79BB20976675004CA7A0 /* OlvideClaveViewController.swift in Sources */,
+				6EBED5E520B0D4070072EBC0 /* AsistenciaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

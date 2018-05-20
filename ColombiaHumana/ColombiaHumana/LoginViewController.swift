@@ -23,6 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var model = ""
     
     override func viewDidLoad() {
+        if(CGenerica.LeerPlist(Nombre: "Usuario", Llave: "User") != "0"){
+            self.Ir()
+        } 
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
         TxtCedula.delegate = self
@@ -73,15 +76,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Ingresar(_ sender: Any) {
         let user = TxtCedula.text
         let pass = TxtClave.text
-        
         if (user == nil || user == "" || user == " " || pass == nil || pass == "" || pass == " " ){
             Alerta(titulo: "Error", texto: "Los campos no pueden estar vacios")
             return
         }
+        self.Login(Usuariof: user!, Passf: pass!, Saber: "0")
         
+    }
+    
+    func Login(Usuariof : String, Passf:String, Saber:String){
         var dict = Dictionary<String, Any>()
-        dict = ["auth":["email" :user, "password" :pass]]
-        //dict = ["auth":["email" :"mike@petro.com.co", "password" :"12345678"]]
+        dict = ["auth":["document" :Usuariof, "password" :Passf]]
         var  jsonData = NSData()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) as NSData
@@ -104,14 +109,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             let dataString =  String(data: data, encoding: String.Encoding.utf8)
             let dict = self.convertToDictionary(text: dataString!)
-            //print(dict?["jwt"] as? String ?? "")
             if let jwt = dict?["jwt"]{
                 self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Id", Valor: jwt as? String ?? "")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.Ir()
-                }
+                self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "User", Valor: Usuariof)
+                self.Peticion()
             }else{
-                self.Alerta(titulo: "Error", texto: "Usuario o clave incorrecta")
+                if (Saber == "0"){
+                    self.Alerta(titulo: "Error", texto: "Usuario o clave incorrecta")
+                }
             }
         }
         task.resume()
@@ -156,6 +161,65 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-}
+    func Peticion (){
+        let url:URL = URL(string: CGenerica.Url()+"/api/user")!
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        let token = CGenerica.LeerPlist(Nombre: "Usuario", Llave: "Id")
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer "+token, forHTTPHeaderField:"Authorization" )
+        
+        let task = session.dataTask(with: request as URLRequest) {(
+            data, response, error) in
+            guard let data = data, let _:URLResponse = response, error == nil else {
+                print("error")
+                return
+            }
+            let dataString =  String(data: data, encoding: String.Encoding.utf8)
+            let dict = self.convertToDictionary(text: dataString!)
+            if let _ = dict?["user"]{
+                let Resultado = dict?["user"] as! NSDictionary
+                let mesas = Resultado["tables"] as! NSArray
+                let usuarioss = Resultado["users"] as! NSArray
+                let Lugar = Resultado["post"] as! NSDictionary
+                var cantidad = 1
+                var cantidadM = 0
+                for a in mesas{
+                    self.CGenerica.GuardarPlist(Nombre: "MesasTotalID", Llave: String(cantidad), Valor: String(Int((a as! NSDictionary)["id"]! as! NSNumber)))
+                    self.CGenerica.GuardarPlist(Nombre: "MesasTotalNombres", Llave:  String(cantidad), Valor: (a as! NSDictionary)["name"]! as! String)
+                    cantidad = cantidad + 1
+                }
+                self.CGenerica.GuardarPlist(Nombre: "MesasTotalID", Llave: "CantidadMesas", Valor: String(cantidad - 1))
+                let cordinador:String = String(describing: Resultado["coordinator"])  ?? ""
+                if (cordinador == "Optional(1)"){
+                    self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Cordinador", Valor: "1")
+                    self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Lugar", Valor: Lugar["name"] as! String)
+                    for usuario in usuarioss{
+                        cantidadM = cantidadM + 1
+                        let tablass = (usuario as! NSDictionary)["tables"]! as! NSArray
+                        self.CGenerica.GuardarPlist(Nombre: "Tabla" + String(cantidadM), Llave:  "identificacion", Valor:String(describing: (usuario as! NSDictionary)["document"]!))
+                        self.CGenerica.GuardarPlist(Nombre: "Tabla" + String(cantidadM), Llave:  "id", Valor:String(describing: (usuario as! NSDictionary)["id"]!))
+                        self.CGenerica.GuardarPlist(Nombre: "Tabla" + String(cantidadM), Llave:  "name", Valor:String(describing: (usuario as! NSDictionary)["name"]!))
+                        var ttmesas = ""
+                        for t in tablass{
+                            ttmesas = ttmesas + String(describing: (t as! NSDictionary)["name"]!).replacingOccurrences(of: "Mesa ", with: "", options: .literal, range: nil) + ","
+                        }
+                        self.CGenerica.GuardarPlist(Nombre: "Tabla" + String(cantidadM), Llave:  "mesas", Valor:ttmesas)
+                    }
+                    self.CGenerica.GuardarPlist(Nombre: "Tabla", Llave:  "cantidad", Valor: String(cantidadM))
+                }else{
+                    self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Cordinador", Valor: "0")
+                }
+            
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.Ir()
+                }
+            }
+        }
+        task.resume()
+    }
+    
+} 
 
 

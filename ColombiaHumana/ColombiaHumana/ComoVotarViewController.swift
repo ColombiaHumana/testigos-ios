@@ -27,7 +27,9 @@ class ComoVotarViewController: UIViewController {
     @IBOutlet weak var LabelTitulo: UILabel!
     @IBOutlet weak var TextView: UITextView!
     @IBOutlet weak var BtnAceptar: UIButton!
+    
     var model = ""
+    var CGenerica = ClaseGenerica()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +80,6 @@ class ComoVotarViewController: UIViewController {
         self.Label2.frame = CGRect(x: self.Img1.frame.origin.x + self.Img1.frame.size.width + 10, y: self.Btn2.frame.size.height/2 + self.Btn2.frame.origin.y - self.Label1.frame.size.height/2, width: self.view.frame.size.width - self.Img1.frame.origin.x - self.Img1.frame.size.width - 10, height:self.Label2.frame.size.height)
         
         self.Label3.frame = CGRect(x: self.Img1.frame.origin.x + self.Img1.frame.size.width + 10, y: self.Btn3.frame.size.height/2 + self.Btn3.frame.origin.y - self.Label3.frame.size.height/2, width: self.view.frame.size.width - self.Img1.frame.origin.x - self.Img1.frame.size.width - 5, height:self.Label3.frame.size.height)
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,4 +114,19 @@ class ComoVotarViewController: UIViewController {
         let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
         revealViewController().pushFrontViewController(newFrontController, animated: true)
     }
+    
+    @objc func Ir(){
+        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exampleVC = storyboard?.instantiateViewController(withIdentifier: "Inicial") as! UINavigationController
+        present(exampleVC, animated: true)
+    }
+    
+    @IBAction func Salir(_ sender: Any) {
+        self.CGenerica.DeletePlist(Nombre: "Usuario")
+        self.CGenerica.DeletePlist(Nombre: "MesasTotalID")
+        self.CGenerica.DeletePlist(Nombre: "MesasTotalNombres")
+        self.CGenerica.DeletePlist(Nombre: "Votos")
+        self.Ir()
+    }
+    
 }

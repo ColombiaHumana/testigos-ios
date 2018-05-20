@@ -56,7 +56,6 @@ class ClaseGenerica {
         }
         
         let myDict = NSDictionary(contentsOfFile: path)
-        //print(myDict ?? "")
         if let dict = myDict {
             if let a = dict.object(forKey: Llave){
                 return dict.object(forKey: Llave) as! String  ?? ""
@@ -67,13 +66,22 @@ class ClaseGenerica {
         return ""
     }
     
-    func Url() -> String {
-        return "https://testigos-app.petro.com.co"
+    func DeletePlist(Nombre: String) {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let fileManager = FileManager.default
+        let documentsDirectory = paths.object(at: 0) as! NSString
+        let path = documentsDirectory.appendingPathComponent(Nombre + ".plist")
+        do {
+            if FileManager.default.fileExists(atPath: path) {
+                try FileManager.default.removeItem(atPath: path)
+            }
+        } catch {
+            print(error)
+        }
     }
     
-    func Peticion(Path : String, dict: Dictionary<String, Any>) -> String {
-       
-        return ""
+    func Url() -> String {
+        return "https://testigos-app.petro.com.co"
     }
     
     func HoraOFecha(Tipo:String) -> String {
