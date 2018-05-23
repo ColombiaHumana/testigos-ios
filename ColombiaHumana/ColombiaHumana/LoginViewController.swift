@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let CGenerica = ClaseGenerica()
     var model = ""
+    let button = UIButton(type: UIButtonType.custom)
     
     override func viewDidLoad() {
         if(CGenerica.LeerPlist(Nombre: "Usuario", Llave: "User") != "0"){
@@ -31,6 +32,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         TxtCedula.delegate = self
         TxtClave.delegate = self
         model = UIDevice.current.modelName
+        
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
+        button.setTitle("Aceptar", for: UIControlState())
+        button.setTitleColor(UIColor.black, for: UIControlState())
+        button.frame = CGRect(x: 0, y: 163, width: 106, height: 53)
+        button.adjustsImageWhenHighlighted = false
+        button.addTarget(self, action: #selector(PuntajeVotacionViewController.Done(_:)), for: UIControlEvents.touchUpInside)
 
         if (model == "iPhone 4" || model == "iPad"){
             self.ViewHeader.frame = CGRect(x: 0, y: self.ViewHeader.frame.origin.y, width: self.view.frame.size.width, height:  self.ViewHeader.frame.size.height - 100)
@@ -143,6 +151,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func BtnGuiasPress(_ sender: Any) {
+        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exampleVC = storyboard?.instantiateViewController(withIdentifier: "Reglamentacion") as! ComoVotarViewController
+        present(exampleVC, animated: true)
+    }
+    
     func Alerta(titulo:String, texto:String) {
         let alertController = UIAlertController(title: titulo, message: texto, preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
@@ -181,7 +195,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let _ = dict?["user"]{
                 let Resultado = dict?["user"] as! NSDictionary
                 let mesas = Resultado["tables"] as! NSArray
-                let usuarioss = Resultado["users"] as! NSArray
                 let Lugar = Resultado["post"] as! NSDictionary
                 var cantidad = 1
                 var cantidadM = 0
@@ -193,6 +206,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.CGenerica.GuardarPlist(Nombre: "MesasTotalID", Llave: "CantidadMesas", Valor: String(cantidad - 1))
                 let cordinador:String = String(describing: Resultado["coordinator"])  ?? ""
                 if (cordinador == "Optional(1)"){
+                    let usuarioss = Resultado["users"] as! NSArray
                     self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Cordinador", Valor: "1")
                     self.CGenerica.GuardarPlist(Nombre: "Usuario", Llave: "Lugar", Valor: Lugar["name"] as! String)
                     for usuario in usuarioss{
@@ -219,6 +233,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         task.resume()
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {        
+        NotificationCenter.default.addObserver(self, selector: #selector(PuntajeVotacionViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ note : Notification) -> Void{
+        DispatchQueue.main.async { () -> Void in
+            self.button.isHidden = false
+            let keyBoardWindow = UIApplication.shared.windows.last
+            self.button.frame = CGRect(x: 0, y: (keyBoardWindow?.frame.size.height)!-53, width: 106, height: 53)
+            keyBoardWindow?.addSubview(self.button)
+            keyBoardWindow?.bringSubview(toFront: self.button)
+            UIView.animate(withDuration: (((note.userInfo! as NSDictionary).object(forKey: UIKeyboardAnimationCurveUserInfoKey) as AnyObject).doubleValue)!, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: 0)
+            }, completion: { (complete) -> Void in
+                //print("Complete")
+            })
+        }
+    }
+    
+    @objc func Done(_ sender : UIButton){
+        self.button.isHidden = true
+        self.view.endEditing(true)
+    }
+
     
 } 
 

@@ -33,7 +33,12 @@ class ComoVotarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
+        
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.368627451, green: 0.1921568627, blue: 0.4274509804, alpha: 1)
+
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        
         self.ViewInformacion.frame = CGRect(x: self.view.frame.size.width/2 - self.ViewInformacion.frame.size.width/2, y: self.ViewInformacion.frame.origin.y, width: self.ViewInformacion.frame.size.width, height:  self.ViewInformacion.frame.size.height)
         model = UIDevice.current.modelName
         
@@ -106,6 +111,12 @@ class ComoVotarViewController: UIViewController {
     
     @IBAction func BtnAceptarPress(_ sender: Any) {
         self.ViewInformacion.isHidden = true
+    }
+    
+    @IBAction func BtnRetornarPress(_ sender: Any) {
+        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exampleVC = storyboard?.instantiateViewController(withIdentifier: "Inicial") as! UINavigationController
+        present(exampleVC, animated: true)
     }
     
     @IBAction func Volver(_ sender: Any) {

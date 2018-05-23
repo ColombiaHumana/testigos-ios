@@ -147,14 +147,15 @@ class ViewController: UIViewController {
     @IBAction func Salir(_ sender: Any) {
         let cantidad = Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: "CantidadMesas"))
         let cantidadMesas = cantidad!
-        for index in 1...cantidadMesas{
-            self.CGenerica.DeletePlist(Nombre: self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
-            self.CGenerica.DeletePlist(Nombre: "Votos" + self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
-            self.CGenerica.DeletePlist(Nombre: "Enviados" + self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
+        if (cantidadMesas != 0){
+            for index in 1...cantidadMesas{
+                self.CGenerica.DeletePlist(Nombre: self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
+                self.CGenerica.DeletePlist(Nombre: "Votos" + self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
+                self.CGenerica.DeletePlist(Nombre: "Enviados" + self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))
+            }
         }
         self.CGenerica.DeletePlist(Nombre: "Usuario")
         self.CGenerica.DeletePlist(Nombre: "MesasTotalID")
-        
         if (self.CGenerica.LeerPlist(Nombre: "Tabla1", Llave: "cantidad") != "0"){
             let totalMesas = Int(self.CGenerica.LeerPlist(Nombre: "Tabla", Llave: "cantidad"))!
             for index in 1...totalMesas{

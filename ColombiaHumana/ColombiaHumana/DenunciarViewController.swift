@@ -88,14 +88,14 @@ class DenunciarViewController: UIViewController, UITabBarDelegate {
         self.Img5.frame = CGRect(x: 5, y:self.btn7.frame.origin.y + self.Btn3.frame.size.height/2 - self.Img3.frame.size.height/2 , width: self.Img4.frame.size.width, height:self.Img1.frame.size.height)
         self.Img6.frame = CGRect(x:self.Btn4.frame.origin.x + 5, y:self.btn7.frame.origin.y + self.Btn3.frame.size.height/2 - self.Img3.frame.size.height/2 , width: self.Img1.frame.size.width, height: self.Img1.frame.size.height)
         
-        self.Label1.frame = CGRect(x: self.Img5.frame.size.width + 15, y:self.Btn3.frame.origin.y + self.Btn3.frame.size.height/2 - self.Label1.frame.size.height/2, width: self.Label1.frame.size.width, height:self.Label1.frame.size.height)
-        self.Label2.frame = CGRect(x:  self.Btn3.frame.size.width + 15 + self.Img5.frame.size.width , y:self.Btn3.frame.origin.y + self.Btn3.frame.size.height/2 - self.Label1.frame.size.height/2, width: self.Label2.frame.size.width, height: self.Label2.frame.size.height)
+        self.Label1.frame = CGRect(x: self.Img5.frame.size.width + 12, y:self.Btn3.frame.origin.y + self.Btn3.frame.size.height/2 - self.Label1.frame.size.height/2, width: self.Label1.frame.size.width, height:self.Label1.frame.size.height)
+        self.Label2.frame = CGRect(x:  self.Btn3.frame.size.width + 12 + self.Img5.frame.size.width , y:self.Btn3.frame.origin.y + self.Btn3.frame.size.height/2 - self.Label1.frame.size.height/2, width: self.Label2.frame.size.width, height: self.Label2.frame.size.height)
         
-        self.Label3.frame = CGRect(x:  self.Img5.frame.size.width + 15, y:self.Btn5.frame.origin.y + self.Btn5.frame.size.height/2 - self.Label3.frame.size.height/2, width: self.Label3.frame.size.width, height:self.Label3.frame.size.height)
-        self.Label4.frame = CGRect(x:  self.Btn3.frame.size.width + 15 + self.Img5.frame.size.width , y:self.Btn5.frame.origin.y + self.Btn5.frame.size.height/2 -  self.Label4.frame.size.height/2, width: self.Label4.frame.size.width, height: self.Label4.frame.size.height)
+        self.Label3.frame = CGRect(x:  self.Img5.frame.size.width + 12, y:self.Btn5.frame.origin.y + self.Btn5.frame.size.height/2 - self.Label3.frame.size.height/2, width: self.Label3.frame.size.width, height:self.Label3.frame.size.height)
+        self.Label4.frame = CGRect(x:  self.Btn3.frame.size.width + 12 + self.Img5.frame.size.width , y:self.Btn5.frame.origin.y + self.Btn5.frame.size.height/2 -  self.Label4.frame.size.height/2, width: self.Label4.frame.size.width, height: self.Label4.frame.size.height)
         
-        self.Label5.frame = CGRect(x:  self.Img5.frame.size.width + 15, y:self.btn7.frame.origin.y + self.btn7.frame.size.height/2 - self.Label5.frame.size.height/2, width: self.Label5.frame.size.width, height:self.Label5.frame.size.height)
-        self.Label6.frame = CGRect(x:  self.Btn3.frame.size.width + 15 + self.Img5.frame.size.width , y:self.btn7.frame.origin.y + self.btn7.frame.size.height/2 - self.Label5.frame.size.height/2, width: self.Label6.frame.size.width, height: self.Label6.frame.size.height)
+        self.Label5.frame = CGRect(x:  self.Img5.frame.size.width + 12, y:self.btn7.frame.origin.y + self.btn7.frame.size.height/2 - self.Label5.frame.size.height/2, width: self.Label5.frame.size.width, height:self.Label5.frame.size.height)
+        self.Label6.frame = CGRect(x:  self.Btn3.frame.size.width + 12 + self.Img5.frame.size.width , y:self.btn7.frame.origin.y + self.btn7.frame.size.height/2 - self.Label5.frame.size.height/2, width: self.Label6.frame.size.width, height: self.Label6.frame.size.height)
         
         self.Btn3.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.Btn4.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -154,7 +154,7 @@ class DenunciarViewController: UIViewController, UITabBarDelegate {
         let btnsendtag: UIButton = sender
         for index in 1...self.cantidadMesas{
             if(Int(btnsendtag.tag) == Int(self.CGenerica.LeerPlist(Nombre: "MesasTotalID", Llave: String(index)))){
-                NumeroMesa = String(btnsendtag.tag)//self.CGenerica.LeerPlist(Nombre: "Mesa", Llave: String(btnsendtag.tag))
+                NumeroMesa = String(btnsendtag.tag)
                 self.ValidarDenunciaMesaUno(Mesa: String(btnsendtag.tag))
                 btnsendtag.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControlState.normal)
                 btnsendtag.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)

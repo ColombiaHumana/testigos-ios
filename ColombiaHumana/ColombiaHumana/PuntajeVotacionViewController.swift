@@ -204,7 +204,7 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
                         let link = String(describing :pat)
                         
                         var dict = Dictionary<String, Any>()
-                        dict = ["result":["table_id" : self.NumeroMesa, "votes":["total_mesa" :(self.TxtTotalVotosMesa.text as! NSString).integerValue, "petro" :(self.TxtPetro.text as! NSString).integerValue, "promotores" :(self.TxtBlanco.text as! NSString).integerValue, "duque" :(self.TxtDuque.text as! NSString).integerValue, "la_calle" :(self.TxtCalle.text as! NSString).integerValue, "trujillo" :(self.TxtTrujillo.text as! NSString).integerValue, "fajardo" :(self.TxtFajardo.text as! NSString).integerValue, "morales" :(self.TxtViviane.text as! NSString).integerValue, "piedad" :(self.TxtPiedad.text as! NSString).integerValue, "vargas" :(self.VotosNoMarcados.text as! NSString).integerValue, "votos_validos" :self.Total, "votos_blancos" :(self.TotalVotosBlanco.text as! NSString).integerValue, "votos_nulos" :(self.VotosNulos.text as! NSString).integerValue, "votos_no_marcados" :(self.VotosNoMarcados.text as! NSString).integerValue, "total" : self.Total2],"image": link]]
+                        dict = ["result":["table_id" : self.NumeroMesa, "votes":["total_mesa" :(self.TxtTotalVotosMesa.text as! NSString).integerValue, "petro" :(self.TxtPetro.text as! NSString).integerValue, "promotores" :(self.TxtBlanco.text as! NSString).integerValue, "duque" :(self.TxtDuque.text as! NSString).integerValue, "la_calle" :(self.TxtCalle.text as! NSString).integerValue, "trujillo" :(self.TxtTrujillo.text as! NSString).integerValue, "fajardo" :(self.TxtFajardo.text as! NSString).integerValue, "morales" :(self.TxtViviane.text as! NSString).integerValue, "vargas" :(self.TxtLleras.text as! NSString).integerValue, "votos_validos" :self.Total, "votos_blancos" :(self.TxtPiedad.text as! NSString).integerValue, "votos_nulos" :(self.VotosNulos.text as! NSString).integerValue, "votos_no_marcados" :(self.VotosNoMarcados.text as! NSString).integerValue, "total" : self.Total2],"image": link]]
                         var  jsonData = NSData()
                         do {
                             jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) as NSData
@@ -392,6 +392,7 @@ class PuntajeVotacionViewController: UIViewController, UIImagePickerControllerDe
     
     @objc func Done(_ sender : UIButton){
         DispatchQueue.main.async { () -> Void in
+            self.button.isHidden = true
             self.TxtTotalVotosMesa.resignFirstResponder()
             self.TotalVotosValidos.resignFirstResponder()
             self.TotalVotos.resignFirstResponder()
